@@ -1,3 +1,66 @@
+/**index.wxss**/
+ .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+} 
+.time_area {
+  /* background-color: blue; */
+  width: 80vw; 
+  height: 66vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 0 3px;
+}
+button {
+  width: 80vw;
+}
+.time {
+  /* background-color: red; */
+  font-size: 70px;
+  color: #fff;
+  /* padding:0 2vw 0 3vw; */
+}
 text {
   color: #fff;
+}
+
+/*mask*/
+.toast_mask {
+ opacity: 0; 
+ width: 100%; 
+ height: 100vh; 
+ overflow: hidden; 
+ position: fixed; 
+ top: 0; 
+ left: 0; 
+ z-index: 888; 
+ background-color: #ffffff;
+} 
+/*toast*/
+.toast_content_box { 
+ display: flex; 
+ width: 100%; 
+ height: 100%; 
+ justify-content: center; 
+ align-items: center; 
+ position: fixed; 
+ z-index: 999; 
+} 
+.toast_content { 
+ width: 50%; 
+ padding: 20rpx; 
+ background: rgba(0, 0, 0, 0.5); 
+ border-radius: 20rpx; 
+} 
+.toast_content_text { 
+ height: 100%; 
+ width: 100%; 
+ color: #fff; 
+ font-size: 20px; 
+ text-align: center; 
 }
