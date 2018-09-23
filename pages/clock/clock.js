@@ -63,19 +63,6 @@ Page({
     })
   },
   
-  tolower: function(){
-    // 到最底下，显示向下箭头
-    console.log('in low')
-  },
-  toupper: function(){
-    //到最上面，显示向上箭头
-    console.log('in up')
-  },
-  scrolling: function(){
-    // 滚动中，上下箭头消失
-    console.log('scrolling')
-  },
-
   click_counter: function () {
     var status = this.data.btn_counter_name;
     if (this.data.data == '00'){
@@ -114,50 +101,17 @@ Page({
     }
   },
 
-  // 点击时间组件确定事件  
-  bindTimeChange: function (e) {
-    var data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex = e.detail.value;
-    var min = data.multiArray[0][data.multiIndex[0]]
-    var sec = data.multiArray[1][data.multiIndex[1]]
-    var ms = min * 6e3 + sec * 100
-    this.setData({
-      time: min + "'" + sec + "''00",
-      data: ms,
-      min: min,
-      seconds: sec,
-      ms: String(ms).substring(String(ms).length - 2),
-      multiIndex: e.detail.value
+  click_normal: function (){
+    console.log("click nor")
+    wx.navigateTo({
+      url: '../normal_clock/normal_clock'
     })
   },
 
-  // 点击组数组件确定事件 
-  bindGroupNumChange: function (e){
-    this.setData({
-      groupIndex: e.detail.value
-    });
-  },
-
-  // swiper事件
-  swichNav: function (e) {
-    console.log(e);
-    var that = this;
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current,
-      })
-    }
-  },
-  swiperChange: function (e) {
-    console.log(e);
-    this.setData({
-      currentTab: e.detail.current,
+  click_fit: function(){
+    console.log("click fit")
+    wx.navigateTo({
+      url: '../fit_clock/fit_clock'
     })
-
   }
 })
