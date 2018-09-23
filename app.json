@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/counter/counter",
+    "pages/clock/clock",
+    "pages/fit_clock/fit_clock",
+    "pages/normal_clock/normal_clock"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#000000",
+    "borderStyle": "#000000",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/time_black.png",
+        "iconPath": "images/time_gray_8a8a8a.png",
+        "pagePath": "pages/index/index",
+        "text": "时钟"
+      },
+      {
+        "selectedIconPath": "images/counter_black.png",
+        "iconPath": "images/counter_gray_8a8a8a.png",
+        "pagePath": "pages/counter/counter",
+        "text": "计时器"
+      },
+      {
+        "selectedIconPath": "images/clock_black.png",
+        "iconPath": "images/clock_gray_8a8a8a.png",
+        "pagePath": "pages/clock/clock",
+        "text": "定时器"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container {
+  padding: 0;
+  justify-content: flex-start;   
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+}
+
+.row-wrap{
+  font-size: 30px;
+  display:inline-block;
+  margin-bottom: 20px;
+}
+
+.label{
+  margin-right: 30px
+}
+
+.setting_area{
+  width: 80vw; 
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.time_area {
+  width: 80vw; 
+  height: 66vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.arrow_up{
+  width: 100vw; 
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 3px; 
+}
+
+.arrow_lower {
+  width: 100vw; 
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 3px;  
+}
+
+button {
+  width: 80vw;
+}
+
+.time {
+  font-size: 70px;
+  color: #ffffff;
+}
+
+text {
+  color: #ffffff;
+}

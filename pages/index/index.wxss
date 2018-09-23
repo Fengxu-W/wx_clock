@@ -1,0 +1,25 @@
+/**index.wxss**/
+.content {
+    /* background-color: #ccc;   */
+  height: 50vh;
+  display: flex;  
+  flex-direction: column;   
+  justify-content: center;   
+  align-items: center;  
+}
+
+.date {
+  font-size: 28px;
+}
+
+.lunar_date {
+  font-size: 16px;
+}
+
+.time {
+  font-size: 70px;
+}
+
+text {
+  color: #fff;
+}

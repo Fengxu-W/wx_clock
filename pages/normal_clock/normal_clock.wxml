@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container" bindtap='insert'>
+  <view>
+    normal_clock
+  </view>
+</view>

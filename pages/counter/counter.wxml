@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container" bindtap='insert'>
+  <view class='time_area'>
+    <text id="time" class="time">{{time}}</text>
+    <button id='btn_counter' bindtap="click_counter" type="{{btn_counter_type}}" style='background-color:{{btn_color}}'>{{btn_counter_name}}</button>
+  </view>
+  <view style='height: 33vh;'>
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style='max-height:25vh; padding: 0 5px'>
+      <view class='record_area'>
+        <view wx:for="{{record_list}}" wx:for-item="item" wx:key="index" class='record'>
+          <text class="record_num">计次 {{item.index}}</text>
+          <text class="record_value" style='float:right'>{{item.record}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!--以下为toast显示的内容-->
+  <view class="toast_content_box" wx:if="{{isShowToast}}"> 
+    <view class="toast_content"> 
+      <view class="toast_content_text"> 
+        {{toastText}} 
+      </view> 
+    </view> 
+  </view> 
+</view>
+<!--mask-->
+<view class="toast_mask" wx:if="{{isShowToast}}"></view> 

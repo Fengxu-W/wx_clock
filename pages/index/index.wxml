@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='content'>
+    <view>
+      <text class="date">{{date}}</text>
+    </view>
+    <view>
+      <text class="lunar_date">{{lunar_date}}</text>
+    </view>
+    <view>
+      <text class="time">{{time}}</text>
+      <text class="second">{{second}}</text>
+    </view>
+  </view>
+</view>

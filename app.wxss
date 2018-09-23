@@ -1,0 +1,21 @@
+/**app.wxss**/
+@import "icon.wxss";
+.iconfont {
+  font-family: "iconfont";
+  font-size:60rpx;
+}
+.icon-xiangshang:before { content: "\e623"; }
+.icon-xiangxia:before { content: "\e624"; }
+
+ .container {
+  height: 100%; 
+  width:100%;
+  position: fixed;
+  background: linear-gradient(black, white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;    
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
