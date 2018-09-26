@@ -26,7 +26,7 @@
       <image bindtap="tap_ch" src="../../images/seting.png"></image>
       <view class='top-content'>
         <view class='clock_area'>
-          <text style='font-size:40px'>No.{{groupNum}}</text>
+          <text style='font-size:40px'>{{groupText}}</text>
           <view class='progress_box'>
             <canvas class="progress_bg"   canvas-id="canvasProgressbg">  </canvas> 
             <canvas class="progress_canvas"   canvas-id="canvasProgress">  </canvas> 
@@ -35,7 +35,7 @@
             </view>
           </view>
         </view>
-        <button id='btn_nl' bindtap="clearCircle" type="primary">开始</button>
+        <button id='btn_fit' bindtap="click_fit" type="{{btn_counter_type}}" style='background-color:{{btn_color}}'>{{btn_counter_name}}</button>
       </view>
     </view>
 <!-- </view> -->

@@ -1,16 +1,4 @@
-var timer
-
-function timing(that) {
-  timer = setInterval(function () {
-    that.data.data++
-    that.setData({
-        min: fixNum(parseInt(that.data.data / 6e3 % 60)),
-        seconds: fixNum(parseInt(that.data.data / 100 % 60)),
-        ms: String(that.data.data).substring(String(that.data.data).length - 2),
-        time: that.data.min + "'" + that.data.seconds + "''" + that.data.ms, 
-    })
-  }, 10)
-}
+var countTimer
 
 function fixNum(t) {
   return t = t < 10 ? "0" + t : t
@@ -35,15 +23,17 @@ function formatSeconds(that) {
 
 Page({
   data: {
+    isShowToast: false,
+    // 按钮
     btn_counter_name: '启动',
     btn_counter_type: 'primary',
     btn_color: '',
-    isShowToast: false,
     // 滑动侧边栏
     open: false,
     mark: 0,
     newmark: 0,
     istoright: true,
+    disableMove: false,
     // picker
     picker_off: false,
     groupArray: [2, 3, 4, 5, 6],
@@ -53,42 +43,43 @@ Page({
     groupTime: 30,
     relaxTime: 10,
     // 倒计时数据
-    groupNum: 1,
-    time: 30
+    groptTextArray: ['第一组', '第二组', '第三组', '第四组', '第五组', '第六组'],
+    groupIndex: 0,
+    groupText: '第一组',
+    time: 30,
+    count: 0, // 设置 计数器 初始为0
   },
-  click_counter: function () {
+  click_fit: function () {
     var status = this.data.btn_counter_name;
     if (status == '启动'){
-      timing(this);
+      this.timeInterval(this.data.groupTime)
       this.setData({
+        disableMove: true,
         btn_counter_name: '停止',
         btn_counter_type: 'warn',
       });
     }
     if (status == '停止') {
-      clearInterval(timer)
+      clearInterval(countTimer)
       this.setData({
-        btn_counter_name: '清空',
+        disableMove: false,
+        btn_counter_name: '重置',
         btn_counter_type: 'default',
         btn_color: '#cccccc'
       });
     }
-    if (status == '清空') {
+    if (status == '重置') {
       this.setData({
         btn_counter_name: '启动',
         btn_counter_type: 'primary',
         btn_color: '',
-        micro_seconds: 0,
-        time: "00'00''00",
-        data: "00",
-        min: "00",
-        seconds: "00",
-        ms: "00",
-        record_list: []
+        time: this.data.groupTime
+        // groupIndex: 0,
+        // groupText: '第一组'
       });
     }
   },
-  // 点击组数组件确定事件 
+  // 点击picker确定事件 
   bindGroupNumChange: function (e) {
     this.setData({
       groupSum: this.data.groupArray[e.detail.value]
@@ -106,6 +97,7 @@ Page({
       time: groupTime
     });
   },
+  // 侧边栏  
   tap_ch: function (e) {
     if (this.data.open) {
       this.setData({
@@ -114,8 +106,8 @@ Page({
       var _this = this;
       setTimeout(function () {
         _this.drawProgressbg();
-        _this.drawCircle(0.2);
-      }, 500)
+        _this.drawCircle(_this.data.time / (_this.data.groupTime / 2));
+      }, 500) 
     } else {
       this.setData({
         open: true
@@ -129,7 +121,9 @@ Page({
   },
   tap_drag: function (e) {
     // touchmove事件
-
+    if (this.data.disableMove){
+        return false;
+    }
     /*
      * 手指从左向右移动
      * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
@@ -147,7 +141,6 @@ Page({
 
     }
     this.data.mark = this.data.newmark;
-
   },
   tap_end: function (e) {
     // touchend事件
@@ -166,9 +159,39 @@ Page({
       var _this = this;
       setTimeout(function () {
         _this.drawProgressbg();
-        _this.drawCircle(0.2);
+        _this.drawCircle(_this.data.time / (_this.data.groupTime / 2));
         }, 500)
     }
+  },
+  // 倒计时
+  timeInterval: function (total) {
+    // 设置倒计时 定时器 每1000毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
+    countTimer = setInterval(() => {
+      if (this.data.time > 0) {
+        /* 绘制彩色圆环进度条  
+        注意此处 传参 step 取值范围是0到2，
+        所以 计数器 最大值 60 对应 2 做处理，计数器count=60的时候step=2
+        */
+        this.setData({
+          time: this.data.time - 1
+        })
+        this.drawCircle(this.data.time / (total / 2))
+      } else {
+        this.drawCircle(this.data.time / (total / 2))
+        clearInterval(countTimer);
+
+        if (this.data.groupIndex < this.data.groupSum-1){
+          this.setData({
+            groupText: "休息",
+            groupIndex: this.data.groupIndex + 1
+          });
+        }else{
+          this.setData({
+            groupText: "完成训练！"
+          });
+        }
+      }
+    }, 1000)
   },
   onLoad: function () {
   },
@@ -176,7 +199,7 @@ Page({
     // 使用 wx.createContext 获取绘图上下文 context
     var ctx = wx.createCanvasContext('canvasProgressbg')
     ctx.setLineWidth(6);// 设置圆环的宽度
-    ctx.setStrokeStyle('#d2d2d2'); // 设置圆环的颜色
+    ctx.setStrokeStyle('#fb9126'); // 设置圆环的颜色
     ctx.setLineCap('round') // 设置圆环端点的形状
     ctx.beginPath();//开始一个新的路径
     ctx.arc(125, 125, 120, 0, 2 * Math.PI, false);
@@ -193,7 +216,7 @@ Page({
     gradient.addColorStop("1.0", "#fb9126");
 
     context.setLineWidth(6);
-    context.setStrokeStyle('#fb9126'); // 设置圆环的颜色
+    context.setStrokeStyle('#d2d2d2'); // 设置圆环的颜色
     // context.setStrokeStyle(gradient);
     context.setLineCap('round')
     context.beginPath();
@@ -213,6 +236,7 @@ Page({
   },
   onReady: function () {
     this.drawProgressbg();
-    this.drawCircle(0.2);
+    this.drawCircle(2);
+    // this.timeInterval(this.data.time)
   }
 })
