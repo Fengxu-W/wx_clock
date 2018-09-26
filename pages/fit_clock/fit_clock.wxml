@@ -1,6 +1,41 @@
 <!--index.wxml-->
-<view class="container">
-  <view>
-    fit_clock
-  </view>
-</view>
+<!-- <view class="container"> -->
+    <view class="page-bottom">
+        <view class="page-content">
+            <view  class="wc">
+              <picker disabled='{{picker_off}}' bindchange="bindGroupNumChange" value="{{groupIndex}}" range="{{groupArray}}">
+                <text class='label'>组数: </text>
+                <text>{{groupSum}}组</text>
+              </picker>
+            </view>
+            <view  class="wc">
+              <picker disabled='{{picker_off}}' bindchange="bindTimeChange" value="{{timeIndex}}" range="{{timeArray}}">
+                <text class='label'>每组时间: </text>
+                <text>{{groupTime}}秒</text>
+              </picker>
+            </view>
+            <view class="wc">
+              <picker disabled='{{picker_off}}' bindchange="bindRelaxChange" value="{{relaxIndex}}" range="{{relaxArray}}">  
+                <text class='label'>组间休息: </text>
+                <text>{{relaxTime}}秒</text>
+              </picker>
+            </view>
+        </view>
+    </view>
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state2' : ''}}">
+      <image bindtap="tap_ch" src="../../images/seting.png"></image>
+      <view class='top-content'>
+        <view class='clock_area'>
+          <text style='font-size:40px'>{{groupText}}</text>
+          <view class='progress_box'>
+            <canvas class="progress_bg"   canvas-id="canvasProgressbg">  </canvas> 
+            <canvas class="progress_canvas"   canvas-id="canvasProgress">  </canvas> 
+            <view class="progress_text">
+                <text class='progress_info'> {{time}}</text>
+            </view>
+          </view>
+        </view>
+        <button id='btn_fit' bindtap="click_fit" type="{{btn_counter_type}}" style='background-color:{{btn_color}}'>{{btn_counter_name}}</button>
+      </view>
+    </view>
+<!-- </view> -->

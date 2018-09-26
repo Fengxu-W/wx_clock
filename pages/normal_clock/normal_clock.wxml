@@ -1,6 +1,22 @@
 <!--index.wxml-->
-<view class="container" bindtap='insert'>
-  <view>
-    normal_clock
-  </view>
+<view class="container">
+  <view class='time_area'>
+        <picker disabled='{{picker_off}}' mode="multiSelector" bindchange="bindTimeChange" value="{{multiIndex}}" range="{{multiArray}}"> 
+          <view class="time">  
+            {{time}}
+          </view>  
+        </picker>
+        <button id='btn_counter' bindtap="click_counter" type="{{btn_counter_type}}" style='background-color:{{btn_color}}'>{{btn_counter_name}}</button>
+      </view> 
+
+  <!--以下为toast显示的内容-->
+  <view class="toast_content_box" wx:if="{{isShowToast}}"> 
+    <view class="toast_content"> 
+      <view class="toast_content_text"> 
+        {{toastText}} 
+      </view> 
+    </view> 
+  </view> 
 </view>
+<!--mask-->
+<view class="toast_mask" wx:if="{{isShowToast}}"></view> 

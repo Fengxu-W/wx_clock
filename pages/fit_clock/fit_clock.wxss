@@ -1,3 +1,109 @@
 text {
   color: #fff;
 }
+
+ /* page,.container {
+  height: 100%; 
+  width:100%;
+  position: fixed;
+  background: linear-gradient(black, white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;    
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+
+.page-bottom{
+  height: 100%;
+  width: 750rpx;
+  position: fixed; 
+  background-color: black;
+  z-index: 0;
+}
+.wc{
+  font-size:25px;
+  /* background-color: blue; */
+  color: white;
+  padding: 30rpx 0 30rpx 40rpx;
+}
+.page-content{
+  padding-top: 300rpx;
+}
+.page-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  background: linear-gradient(black, white);
+  z-index: 0;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+.page-top image{
+  position: absolute;
+  width: 60rpx;
+  height: 40rpx;
+  left: 20rpx;
+  top: 20rpx;
+}
+.c-state2{
+  transform: rotate(0deg) scale(.8) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(.8) translate(75%,0%); 
+}
+.top-content{
+  height: 100vh;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: blue; */
+}
+.clock_area{
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+  padding-top: 100rpx;
+}
+button {
+  width: 80vw;
+  margin-bottom: 40px;
+  /* margin-top:80px; */
+}
+.progress_box{
+  position: relative;
+  width:250px;
+  height: 250px;  
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fb9126; */
+}
+.progress_bg{
+  position: absolute;
+  width:250px;
+  height: 250px; 
+}
+.progress_canvas{ 
+  width:250px;
+  height: 250px; 
+} 
+.progress_text{ 
+  position: absolute; 
+  display: flex;  
+  align-items: center;
+  justify-content: center
+}
+.progress_info{   
+  font-size:110px;
+  padding-left: 16rpx;
+  letter-spacing: 2rpx
+} 
+.progress_dot{
+  width:16rpx;
+  height: 16rpx;  
+  border-radius: 50%;
+  background-color: #fb9126;
+}

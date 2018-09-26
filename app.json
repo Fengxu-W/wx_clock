@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
     "pages/counter/counter",
     "pages/clock/clock",
     "pages/fit_clock/fit_clock",
@@ -11,7 +10,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#a9b7b7",

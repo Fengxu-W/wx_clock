@@ -1,51 +1,7 @@
 <view class='container'>
-  <scroll-view scroll-y="{{isScroll}}" bindscrolltolower='tolower' bindscrolltoupper='toupper' bindscroll='scrolling' style='max-height:100vh;' scroll-into-view='time'>
-    <view id='setting' class='content'>
-      <view class='arrow_up'>
-        <text style='padding:0 0 5px 0;'>Start</text>
-        <icon class="iconfont icon-xiangshang" style='color:white'></icon>
-      </view>
-      <view class='setting_area'>
-        
-        <view class="row-wrap">
-          <picker disabled='{{picker_off}}' bindchange="bindGroupNumChange" value="{{groupIndex}}" range="{{groupArray}}">
-            <text class='label'>组数:</text>
-            <text>{{groupArray[groupIndex]}}组</text>
-          </picker>
-        </view>
+  <view class='btn_area'>
+    <button id='btn_normal' bindtap="click_normal" type="primary">普通模式</button>
 
-        <view class="row-wrap">
-          <picker disabled='{{picker_off}}' mode="multiSelector" bindchange="bindTimeChange" value="{{multiIndex}}" range="{{multiArray}}">  
-            <text class='label'>每组时间:</text>
-            <text>{{multiArray[0][multiIndex[0]]}}'{{multiArray[1][multiIndex[1]]}}</text>
-          </picker>
-        </view>
-        
-        <view class="row-wrap">
-          <picker disabled='{{picker_off}}' mode="multiSelector" bindchange="bindTimeChange" value="{{multiIndex}}" range="{{multiArray}}">  
-            <text class='label'>组间休息:</text>
-            <text>{{multiArray[0][multiIndex[0]]}}'{{multiArray[1][multiIndex[1]]}}</text>
-          </picker>
-        </view>
-      </view>
-    </view>
-
-
-    <view id='time' class='content'>
-      <view class='time_area'>
-        <picker disabled='{{picker_off}}' mode="multiSelector" bindchange="bindTimeChange" value="{{multiIndex}}" range="{{multiArray}}">  
-          <view class="time">  
-            {{time}}
-          </view>  
-        </picker>
-        <button id='btn_counter' bindtap="click_counter" type="{{btn_counter_type}}" style='background-color:{{btn_color}}'>{{btn_counter_name}}</button>
-      </view> 
-      <view class='arrow_lower'>
-        <!-- <view style='display:inline-block;'> -->
-          <icon class="iconfont icon-xiangxia"></icon>
-          <text style='color:black;'>Setting</text>
-        <!-- </view> -->
-      </view>
-    </view>
-  </scroll-view>
+    <button id='btn_fit' bindtap="click_fit" type="default">健身模式</button>
+  </view> 
 </view>
