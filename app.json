@@ -9,13 +9,13 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "训练时",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#000000",
-    "borderStyle": "#000000",
+    "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {

@@ -227,7 +227,6 @@ Page({
     ctx.draw();
   },
   drawCircle: function (step) {
-    console.log(step)
     var context = wx.createCanvasContext('canvasProgress');
     // 设置渐变
     var gradient = context.createLinearGradient(200, 100, 100, 200);
@@ -246,7 +245,6 @@ Page({
     context.draw()
   },
   clearCircle: function (){
-    console.log('clear')
     var ctx = wx.createCanvasContext('canvasProgress')
     ctx.clearRect(0, 0, 250, 250)
     ctx.draw()

@@ -10,7 +10,6 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 0 3px;
-  /* background-color: red */
 }
 
 button {
